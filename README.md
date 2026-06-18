@@ -82,4 +82,6 @@ Aspiring Data Analyst
 ---
 
 ⭐ Feel free to explore and give feedback!
+--- - name: Basic Server Setup   hosts: localhost   become: yes   tasks:   - name: Update apt cache     apt:       update_cache: yes   - name: Install Apache     apt:       name: apache2       state: present   - name: Start Apache service     service:       name: apache2       state: started       enabled: yes   - name: Create web page copy: dest: /var/www/html/index.html content: "<h1>Ansible Web Server Working</h1>" 
+--- - name: Deploy Maven Artifact (Jenkins User Accessible)   hosts: local   tasks:     - name: Ensure deployment directory exists       ansible.builtin.file:         path: "C:\\Users\\raushan\\.jenkins\\deployment"         state: directory     - name: Copy the artifact to the deployment directory       ansible.builtin.copy:         src: "C:\\Users\\raushan\\.jenkins\\workspace\\HelloMaven-CI\\target\\DAY2-EXP2-1.0-SNAPSHOT.jar"         dest: "C:\\Users\\raushan\\.jenkins\\deployment\\HelloMaven.jar" remote_src: yes 
 
